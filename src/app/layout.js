@@ -38,6 +38,10 @@ export const metadata = {
     </html>
   );
 }
+<button onClick={() => audioRef.current?.play()}>
+  Play Background Music
+</button>
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
