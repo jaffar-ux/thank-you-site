@@ -1,40 +1,18 @@
-"use client";
-import { useEffect, useRef, useState } from "react";
+import "./globals.css";
+import AudioPlayer from "../components/AudioPlayer";
 
-export default function AudioPlayer() {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+export const metadata = {
+  title: "I Have Something to Say...",
+  description: "This isn't just a website. It's something truly special.",
+};
 
-  const handlePlayPause = () => {
-    const audio = audioRef.current;
-    
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play().catch(() => {
-        console.warn("Autoplay blocked. User must interact first.");
-      });
-    }
-    
-    setIsPlaying(!isPlaying);
-  };
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (audio) {
-      audio.loop = true; // Ensures that the audio loops
-    }
-  }, []);
-
+export default function RootLayout({ children }) {
   return (
-    <>
-      {/* Background Music */}
-      <audio ref={audioRef} src="/paro.mp3" />
-      
-      {/* Play/Pause Button */}
-      <button onClick={handlePlayPause}>
-        {isPlaying ? "Pause Background Music" : "Play Background Music"}
-      </button>
-    </>
+    <html lang="en">
+      <body className="antialiased">
+        <AudioPlayer />
+        {children}
+      </body>
+    </html>
   );
 }
