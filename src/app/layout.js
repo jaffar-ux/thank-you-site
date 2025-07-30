@@ -1,4 +1,4 @@
-import "../globals.css";
+import "./globals.css";
 import AudioPlayer from "../components/AudioPlayer"; // Adjust path if needed
 
 export const metadata = {
