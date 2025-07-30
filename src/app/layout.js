@@ -4,7 +4,7 @@ export const metadata = {
   title: "I Have Something to Say...",
   description: "This isn’t just a website. It’s something truly special, built with love — just for you. Open it and feel it unfold.",
 };
-
+//src/app/layout.js
 'use client';
 
 import { useEffect, useRef } from 'react';
