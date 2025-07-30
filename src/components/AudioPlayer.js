@@ -1,18 +1,22 @@
-import "./globals.css";
-import AudioPlayer from "../components/AudioPlayer";
+'use client';
 
-export const metadata = {
-  title: "I Have Something to Say...",
-  description: "This isn't just a website. It's something truly special.",
-};
+import { useRef, useEffect } from 'react';
 
-export default function RootLayout({ children }) {
+export default function AudioPlayer() {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
+  }, []);
+
   return (
-    <html lang="en">
-      <body className="antialiased">
-        <AudioPlayer />
-        {children}
-      </body>
-    </html>
+    <div>
+      <audio ref={audioRef} controls>
+        <source src="/audio/paro.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   );
 }
