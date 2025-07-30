@@ -1,5 +1,4 @@
-// src/app/AudioPlayer.js OR src/components/AudioPlayer.js
-
+// src/components/AudioPlayer.js
 "use client";
 
 import { useEffect, useRef } from "react";
@@ -10,7 +9,7 @@ export default function AudioPlayer() {
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
-      audio.play().catch((err) => {
+      audio.play().catch(() => {
         console.warn("Autoplay blocked. User must interact first.");
       });
     }
@@ -21,7 +20,7 @@ export default function AudioPlayer() {
       {/* Background Music */}
       <audio ref={audioRef} src="/paro.mp3" autoPlay loop />
 
-      {/* Optional Play Button */}
+      {/* Optional Manual Trigger */}
       <button onClick={() => audioRef.current?.play()}>
         Play Background Music
       </button>
