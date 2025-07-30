@@ -1,48 +1,36 @@
 import "./globals.css";
+import { useEffect, useRef } from "react";
 
 export const metadata = {
   title: "I Have Something to Say...",
-  description: "This isn’t just a website. It’s something truly special, built with love — just for you. Open it and feel it unfold.",
-};
-'use client';
-
-import { useEffect, useRef } from 'react';
-import './globals.css';
-
-export const metadata = {
-  title: "I Have Something to Say...",
-  description: "This isn’t just a website. It’s something true.",
+  description: "This isn’t just a website. It’s something truly special.",
 };
 
- {
+export default function RootLayout({ children }) {
   const audioRef = useRef(null);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
-      audio.play().catch(err => {
-        console.warn("Autoplay blocked. User must interact first.", err);
+      audio.play().catch((err) => {
+        console.warn("Autoplay blocked. User must interact first.");
       });
     }
   }, []);
 
-   function Layout() {
-  return (
-    <div>
-      {/* layout content */}
-    </div>
-  );
-}
-
-export default Layout;
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
         {/* Background Music */}
         <audio ref={audioRef} src="/paro.mp3" autoPlay loop />
-        
+
         {/* Page Content */}
         {children}
+
+        {/* Optional Play Button for manual trigger */}
+        <button onClick={() => audioRef.current?.play()}>
+          Play Background Music
+        </button>
       </body>
     </html>
   );
