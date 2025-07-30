@@ -1,7 +1,5 @@
-"use client";
-
 import "./globals.css";
-import AudioPlayer from "../components/AudioPlayer"; // Adjust path if needed
+import AudioPlayer from "../components/AudioPlayer";
 
 export const metadata = {
   title: "I Have Something to Say...",
@@ -10,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className="antialiased">
         <AudioPlayer />
         {children}
