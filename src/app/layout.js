@@ -4,13 +4,17 @@ export const metadata = {
   title: "I Have Something to Say...",
   description: "This isn’t just a website. It’s something truly special, built with love — just for you. Open it and feel it unfold.",
 };
-//src/app/layout.js
 'use client';
 
 import { useEffect, useRef } from 'react';
 import './globals.css';
 
-export default function RootLayout({ children }) {
+export const metadata = {
+  title: "I Have Something to Say...",
+  description: "This isn’t just a website. It’s something true.",
+};
+
+ {
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -23,12 +27,12 @@ export default function RootLayout({ children }) {
   }, []);
 
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased">
         {/* Background Music */}
         <audio ref={audioRef} src="/paro.mp3" autoPlay loop />
-
-        {/* Your actual page content */}
+        
+        {/* Page Content */}
         {children}
       </body>
     </html>
