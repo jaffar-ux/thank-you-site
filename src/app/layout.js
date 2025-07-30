@@ -26,6 +26,15 @@ export const metadata = {
     }
   }, []);
 
+   function Layout() {
+  return (
+    <div>
+      {/* layout content */}
+    </div>
+  );
+}
+
+export default Layout;
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
