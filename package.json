@@ -1,4 +1,4 @@
-{
+u{
   "name": "thank-you-site",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +22,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
     "tailwindcss": "^4"
-  },
+  
   "type": "module"
 }
